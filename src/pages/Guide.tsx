@@ -13,7 +13,8 @@ import {
   Key,
   Shield,
   RefreshCw,
-  CheckCircle
+  CheckCircle,
+  Coffee
 } from 'lucide-react';
 
 const Guide = () => {
