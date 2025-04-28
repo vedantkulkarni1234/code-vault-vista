@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PasswordGenerator from '@/components/PasswordGenerator';
 import PasswordSphere from '@/components/PasswordSphere';
+import PythonToolShowcase from '@/components/PythonToolShowcase';
 import { Coffee, Book, Code, ShieldCheck, Lock, Key } from 'lucide-react';
 
 const Index = () => {
@@ -106,6 +106,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        {/* Python Tool Showcase Section */}
+        <PythonToolShowcase />
         
         {/* Features Section */}
         <section className="py-20 bg-coder-dark relative overflow-hidden">
