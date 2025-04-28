@@ -37,52 +37,101 @@ const Index = () => {
       <main className="pt-16">
         {/* Hero Section */}
         <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden py-20">
-          <div className="absolute inset-0 hero-gradient -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-coder-purple/10"></div>
           
-          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 z-10">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-                <span className="text-glow text-coder-purple">SecureVault</span> 
-                <br />
-                <span className="text-white">Password Manager</span>
-              </h1>
+          {/* Animated Background Grid */}
+          <div className="absolute inset-0 grid grid-cols-8 gap-4 p-4 opacity-10">
+            {Array.from({ length: 64 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-square rounded-lg bg-coder-purple/30 animate-pulse-slow"
+                style={{
+                  animationDelay: `${Math.random() * 2}s`,
+                  opacity: Math.random() * 0.3 + 0.1
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Floating Binary Numbers */}
+          <div className="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 20 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute text-coder-purple/20 font-mono text-xl animate-float"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 5}s`,
+                  animationDuration: `${5 + Math.random() * 5}s`
+                }}
+              >
+                {Math.random().toString(2).slice(2, 10)}
+              </div>
+            ))}
+          </div>
+
+          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="space-y-6">
+              <div className="relative">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                  <span className="relative inline-block">
+                    <span className="absolute -inset-1 bg-gradient-to-r from-coder-purple to-coder-blue blur-lg opacity-50"></span>
+                    <span className="relative text-glow text-transparent bg-clip-text bg-gradient-to-r from-coder-purple to-coder-blue">
+                      SecureVault
+                    </span>
+                  </span>
+                  <br />
+                  <span className="text-white animate-fade-in">Password Manager</span>
+                </h1>
+              </div>
               
-              <p className="text-lg text-gray-300 max-w-lg">
+              <p className="text-lg text-gray-300 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 Generate strong, unique passwords and keep your online accounts secure. 
                 Built with advanced encryption techniques by developers, for everyone.
               </p>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                 <Link to="#password-tool">
-                  <Button className="bg-coder-purple hover:bg-coder-blue transition-colors text-white">
+                  <Button className="bg-coder-purple hover:bg-coder-blue transition-all duration-300 text-white hover:scale-105 transform">
                     Try it now
                   </Button>
                 </Link>
                 
                 <Link to="/guide">
-                  <Button variant="outline" className="border-gray-500 hover:border-coder-purple">
+                  <Button 
+                    variant="outline" 
+                    className="border-gray-500 hover:border-coder-purple transition-all duration-300 hover:scale-105 transform"
+                  >
                     <Book className="mr-2 h-4 w-4" />
                     User Guide
                   </Button>
                 </Link>
               </div>
               
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <ShieldCheck className="h-4 w-4 text-coder-green" />
+              <div 
+                className="flex items-center gap-2 text-sm text-gray-400 animate-fade-in" 
+                style={{ animationDelay: '0.6s' }}
+              >
+                <ShieldCheck className="h-4 w-4 text-coder-green animate-pulse" />
                 <span>Your passwords are never stored or transmitted</span>
               </div>
             </div>
             
-            <div className="relative h-80 sm:h-96 md:h-[500px] -z-10 parallax" data-speed="0.1">
+            <div className="relative h-80 sm:h-96 md:h-[500px] -z-10 parallax glass-card rounded-xl" data-speed="0.1">
               <PasswordSphere />
+              
+              {/* Glowing Corners */}
+              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-coder-purple/30 to-transparent blur-lg"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-coder-blue/30 to-transparent blur-lg"></div>
             </div>
           </div>
           
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <Link to="#password-tool" className="text-gray-400 hover:text-coder-purple transition-colors">
+            <Link to="#password-tool" className="text-gray-400 hover:text-coder-purple transition-all duration-300">
               <div className="flex flex-col items-center">
                 <span className="text-sm mb-2">Try it now</span>
-                <div className="w-6 h-6 border-b-2 border-r-2 border-gray-400 rotate-45"></div>
+                <div className="w-6 h-6 border-b-2 border-r-2 border-current rotate-45"></div>
               </div>
             </Link>
           </div>
