@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom color palette for coder theme
+				coder: {
+					dark: "#121212",
+					darker: "#0a0a0a",
+					purple: "#9b87f5",
+					blue: "#0EA5E9",
+					neon: "#00FFFF",
+					green: "#00FF00"
 				}
 			},
 			borderRadius: {
@@ -68,27 +78,53 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
+				sans: ['Inter', 'sans-serif']
+			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'glow': {
+					'0%, 100%': { textShadow: '0 0 5px #9b87f5, 0 0 10px #9b87f5' },
+					'50%': { textShadow: '0 0 20px #9b87f5, 0 0 30px #9b87f5' }
+				},
+				'gradient-xy': {
+					'0%, 100%': {
+						'background-size': '400% 400%',
+						'background-position': 'left center'
 					},
-					to: {
-						height: '0'
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite',
+				'gradient-xy': 'gradient-xy 15s ease infinite'
+			},
+			backgroundImage: {
+				'grid-pattern': 'linear-gradient(to right, #121212 1px, transparent 1px), linear-gradient(to bottom, #121212 1px, transparent 1px)',
+				'coder-gradient': 'linear-gradient(135deg, #9b87f5 0%, #0EA5E9 100%)'
 			}
 		}
 	},
